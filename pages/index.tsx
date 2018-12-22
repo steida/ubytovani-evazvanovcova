@@ -28,8 +28,12 @@ const Index: React.FunctionComponent = () => {
       <Image
         source={{ uri: '/static/penzion1.jpg' }}
         style={[
-          { width: 800 / 2, height: 600 / 2, alignSelf: 'center' },
-          theme.marginBottom,
+          {
+            alignSelf: 'center',
+            height: 600 / 2,
+            width: 800 / 2,
+          },
+          theme.image,
         ]}
         {...Platform.select({
           web: {

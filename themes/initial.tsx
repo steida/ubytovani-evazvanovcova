@@ -1,4 +1,4 @@
-import { TextStyle, ViewStyle } from 'react-native';
+import { ImageStyle, TextStyle, ViewStyle } from 'react-native';
 
 // https://yeun.github.io/open-color/
 const colors = {
@@ -131,6 +131,11 @@ export const createTheme = (colors: Colors, dimensions: Dimensions) => {
     flexDirection: 'row',
   };
 
+  const image: ImageStyle = {
+    ...marginBottom,
+    maxWidth: '100%',
+  };
+
   return {
     body,
     container,
@@ -139,6 +144,7 @@ export const createTheme = (colors: Colors, dimensions: Dimensions) => {
     header,
     headerLink,
     heading1,
+    image,
     link,
     linkActive,
     logo,
