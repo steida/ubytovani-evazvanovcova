@@ -1,7 +1,7 @@
 import Head from 'next/head';
 import React from 'react';
 import { defineMessages } from 'react-intl';
-import { Text, View } from 'react-native';
+import { ScrollView, Text, View } from 'react-native';
 import Link, { Href } from '../components/Link';
 import Spacer from '../components/Spacer';
 import useIntl from '../hooks/useIntl';
@@ -83,14 +83,14 @@ const Page: React.FunctionComponent<{
       <Head>
         <title>{`${props.title} - ${webTitle}`}</title>
       </Head>
-      <View style={theme.page}>
+      <ScrollView style={theme.page}>
         <View style={theme.container}>
           <Logo />
           <Header />
           <View style={theme.body}>{props.children}</View>
           <Footer />
         </View>
-      </View>
+      </ScrollView>
     </>
   );
 };

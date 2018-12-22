@@ -12,6 +12,7 @@
     // Note "extends {}" workaround for JSX.
     // const identity = <T extends {}>(arg: T): T => { return arg; }
     "only-arrow-functions": true,
-    "interface-name": [true, "never-prefix"]
+    "interface-name": [true, "never-prefix"],
+    "ordered-imports": false
   }
 }

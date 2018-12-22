@@ -14,8 +14,8 @@ const colors = {
 const dimensions = {
   space: 24, // Like default lineHeight
   spaceSmall: 12,
-  spaceSmaller: 4,
-  spaceSmallest: 2,
+  spaceSmaller: 6,
+  spaceSmallest: 3,
 };
 
 type Colors = typeof colors;
@@ -30,13 +30,14 @@ export const createTheme = (colors: Colors, dimensions: Dimensions) => {
     lineHeight: 24,
   };
 
-  const marginBottom: ViewStyle = {
+  const marginBottom = {
     marginBottom: 24,
   };
 
   const paragraph: TextStyle = {
     ...text,
     ...marginBottom,
+    paddingHorizontal: dimensions.space,
   };
 
   const heading1: TextStyle = {
@@ -62,9 +63,9 @@ export const createTheme = (colors: Colors, dimensions: Dimensions) => {
     backgroundColor: 'rgb(255, 180, 49)',
     borderColor: colors.black,
     borderWidth: 2,
-    // flex: 1,
+    flex: 1,
     marginHorizontal: 'auto',
-    marginTop: 8,
+    marginVertical: 8,
     maxWidth: 804,
     // https://css-tricks.com/tale-width-max-width/
     width: '100%',
@@ -72,7 +73,10 @@ export const createTheme = (colors: Colors, dimensions: Dimensions) => {
 
   const logo: ViewStyle = {
     // @ts-ignore Web only.
-    backgroundImage: `url('static/back.png')`,
+    backgroundImage: `url('static/head.png')`,
+    // potrebuju obrazek, aby se roztahoval podle pozadi, hmm
+    // takze asi image component, ok
+    height: 178,
   };
 
   const header: ViewStyle = {
@@ -81,6 +85,7 @@ export const createTheme = (colors: Colors, dimensions: Dimensions) => {
     flexWrap: 'wrap',
     paddingHorizontal: dimensions.spaceSmall,
     paddingVertical: dimensions.spaceSmaller,
+    ...marginBottom,
   };
 
   const headerLink: TextStyle = {
@@ -103,7 +108,7 @@ export const createTheme = (colors: Colors, dimensions: Dimensions) => {
     color: colors.foregroundInverse,
     fontSize: 12,
     fontWeight: 'bold',
-    paddingVertical: dimensions.spaceSmaller,
+    paddingVertical: dimensions.spaceSmallest,
     textAlign: 'center',
   };
 
@@ -137,6 +142,7 @@ export const createTheme = (colors: Colors, dimensions: Dimensions) => {
     link,
     linkActive,
     logo,
+    marginBottom,
     page,
     paragraph,
     row,
