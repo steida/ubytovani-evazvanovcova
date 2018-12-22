@@ -2,42 +2,57 @@ import Head from 'next/head';
 import React from 'react';
 import { defineMessages } from 'react-intl';
 import { Text, View } from 'react-native';
-import Link from '../components/Link';
+import Link, { Href } from '../components/Link';
 import Spacer from '../components/Spacer';
 import useIntl from '../hooks/useIntl';
 import useTheme from '../hooks/useTheme';
 
 export const pageMessages = defineMessages({
-  pageTitleIndex: {
+  pageTitleAbout: {
     defaultMessage: 'O penzionu',
-    id: 'pageTitleIndex',
+    id: 'pageTitleAbout',
+  },
+  pageTitleContacts: {
+    defaultMessage: 'Kontakty',
+    id: 'pageTitleContacts',
+  },
+  pageTitleGallery: {
+    defaultMessage: 'Fotogalerie',
+    id: 'pageTitleGallery',
+  },
+  pageTitlePrices: {
+    defaultMessage: 'Ceník',
+    id: 'pageTitlePrices',
+  },
+  pageTitleServices: {
+    defaultMessage: 'Služby',
+    id: 'pageTitleServices',
   },
   webTitle: {
     defaultMessage: 'Ubytování v Třeboni',
-    id: 'pageTitleIndex',
+    id: 'webTitle',
   },
-  // pageTitleSignIn: {
-  //   defaultMessage: 'Sign in',
-  //   id: 'pageTitleSignIn',
-  // },
 });
 
 const Header: React.FunctionComponent = () => {
   const theme = useTheme();
   const intl = useIntl();
+  const HeaderLink = ({ href, message }: { href: Href; message: any }) => {
+    return (
+      <Link style={theme.headerLink} href={href}>
+        {intl.formatMessage(message)}
+      </Link>
+    );
+  };
+
   return (
     <View style={theme.header}>
       <Spacer>
-        <Text style={theme.text}>
-          <Link href="/">
-            {intl.formatMessage(pageMessages.pageTitleIndex)}
-          </Link>
-        </Text>
-        {/* <Text style={theme.text}>
-          <Link href={{ pathname: '/signin' }}>
-            {intl.formatMessage(pageMessages.pageTitleSignIn)}
-          </Link>
-        </Text> */}
+        <HeaderLink href="/" message={pageMessages.pageTitleAbout} />
+        <HeaderLink href="/cenik" message={pageMessages.pageTitlePrices} />
+        <HeaderLink href="/fotky" message={pageMessages.pageTitleGallery} />
+        <HeaderLink href="/kontakt" message={pageMessages.pageTitleContacts} />
+        <HeaderLink href="/sluzby" message={pageMessages.pageTitleServices} />
       </Spacer>
     </View>
   );

@@ -7,13 +7,7 @@ import useTheme from '../hooks/useTheme';
 
 // Wrapper for Next.js Link with React Native Web support and some other things.
 
-type Href =
-  | '/'
-  | 'https://twitter.com/steida'
-  | {
-      pathname: '/signin';
-      query?: { redirectUrl: string };
-    };
+export type Href = '/' | '/cenik' | '/fotky' | '/kontakt' | '/sluzby';
 
 type LinkProps = Pick<
   NextLinkProps,
@@ -35,14 +29,7 @@ const Link: React.FunctionComponent<LinkProps> = props => {
 
   const routeIsActive = () => {
     if (router == null) return false;
-    const linkPathname = typeof href === 'object' ? href.pathname : href;
-    const linkQuery = typeof href === 'object' ? href.query : null;
-    return (
-      linkPathname === router.pathname &&
-      (linkQuery == null
-        ? true
-        : JSON.stringify(linkQuery) === JSON.stringify(router.query))
-    );
+    return href === router.pathname;
   };
 
   return (

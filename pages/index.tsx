@@ -24,7 +24,7 @@ import useTheme from '../hooks/useTheme';
 const Index: React.FunctionComponent = () => {
   const theme = useTheme();
   const intl = useIntl();
-  const title = intl.formatMessage(pageMessages.pageTitleIndex);
+  const title = intl.formatMessage(pageMessages.pageTitleAbout);
 
   return (
     <Page title={title}>
