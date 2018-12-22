@@ -29,7 +29,7 @@ export const pageMessages = defineMessages({
     id: 'pageTitleServices',
   },
   webTitle: {
-    defaultMessage: 'Ubytování v Třeboni',
+    defaultMessage: 'Ubytování v Třeboni - Eva Zvánovcová',
     id: 'webTitle',
   },
 });
