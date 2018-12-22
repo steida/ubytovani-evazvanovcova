@@ -8,12 +8,8 @@ import useIntl from '../hooks/useIntl';
 import useTheme from '../hooks/useTheme';
 
 export const pageMessages = defineMessages({
-  pageFooterMadeBy: {
-    defaultMessage: 'made by',
-    id: 'pageFooterMadeBy',
-  },
   pageTitleIndex: {
-    defaultMessage: 'O pensionu',
+    defaultMessage: 'O penzionu',
     id: 'pageTitleIndex',
   },
   webTitle: {
@@ -49,13 +45,9 @@ const Header: React.FunctionComponent = () => {
 
 const Footer: React.FunctionComponent = () => {
   const theme = useTheme();
-  const intl = useIntl();
   return (
     <View style={theme.footer}>
-      <Text style={theme.footerText}>
-        {intl.formatMessage(pageMessages.pageFooterMadeBy)}{' '}
-        <Link href="https://twitter.com/steida">steida</Link>
-      </Text>
+      <Text style={theme.footerText}>eva.zvanovcova@email.cz</Text>
     </View>
   );
 };
