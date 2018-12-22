@@ -18,105 +18,135 @@ const dimensions = {
   spaceSmallest: 2,
 };
 
-const theme: { [name: string]: ViewStyle | TextStyle } = {};
+type Colors = typeof colors;
+type Dimensions = typeof dimensions;
 
-theme.text = {
-  color: colors.foreground,
-  fontFamily:
-    '-apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol"',
-  fontSize: 16,
-  lineHeight: 24,
+export const createTheme = (colors: Colors, dimensions: Dimensions) => {
+  const text: TextStyle = {
+    color: colors.foreground,
+    fontFamily:
+      '-apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol"',
+    fontSize: 16,
+    lineHeight: 24,
+  };
+
+  const marginBottom: ViewStyle = {
+    marginBottom: 24,
+  };
+
+  const paragraph: TextStyle = {
+    ...text,
+    ...marginBottom,
+  };
+
+  const heading1: TextStyle = {
+    ...text,
+    ...marginBottom,
+    fontFamily: 'serif',
+    fontSize: 28,
+    fontStyle: 'italic',
+    fontWeight: 'bold',
+    lineHeight: 42,
+    textAlign: 'center',
+  };
+
+  const page: ViewStyle = {
+    backgroundColor: colors.background,
+    // @ts-ignore Web only.
+    backgroundImage: `url('static/back.png')`,
+    flex: 1,
+    paddingHorizontal: 16,
+  };
+
+  const container = {
+    backgroundColor: 'rgb(255, 180, 49)',
+    borderColor: colors.black,
+    borderWidth: 2,
+    // flex: 1,
+    marginHorizontal: 'auto',
+    marginTop: 8,
+    maxWidth: 804,
+    // https://css-tricks.com/tale-width-max-width/
+    width: '100%',
+  };
+
+  const logo: ViewStyle = {
+    // @ts-ignore Web only.
+    backgroundImage: `url('static/back.png')`,
+  };
+
+  const header: ViewStyle = {
+    backgroundColor: colors.black,
+    flexDirection: 'row',
+    flexWrap: 'wrap',
+    paddingHorizontal: dimensions.spaceSmall,
+    paddingVertical: dimensions.spaceSmaller,
+  };
+
+  const headerLink: TextStyle = {
+    ...text,
+    color: colors.foregroundInverse,
+    fontSize: 13,
+    fontWeight: '700',
+  };
+
+  const body: ViewStyle = {
+    flex: 1,
+  };
+
+  const footer: ViewStyle = {
+    backgroundColor: colors.black,
+  };
+
+  const footerText: TextStyle = {
+    ...text,
+    color: colors.foregroundInverse,
+    fontSize: 12,
+    fontWeight: 'bold',
+    paddingVertical: dimensions.spaceSmaller,
+    textAlign: 'center',
+  };
+
+  const link: TextStyle = {
+    // Link does not extend text, because link can be in any text and inherits
+    // it's styles like fontFamily and fontSize. Therefore, Link must be always
+    // wrapped by Text.
+    color: colors.primary,
+  };
+
+  const linkActive: TextStyle = {
+    textDecorationLine: 'underline',
+  };
+
+  const spacer: ViewStyle = {
+    width: dimensions.spaceSmall,
+  };
+
+  const row: ViewStyle = {
+    flexDirection: 'row',
+  };
+
+  return {
+    body,
+    container,
+    footer,
+    footerText,
+    header,
+    headerLink,
+    heading1,
+    link,
+    linkActive,
+    logo,
+    page,
+    paragraph,
+    row,
+    spacer,
+    text,
+  };
 };
 
-theme.marginBottom = {
-  marginBottom: 24,
-};
+const theme = createTheme(colors, dimensions);
 
-theme.paragraph = {
-  ...theme.text,
-  ...theme.marginBottom,
-};
-
-theme.heading1 = {
-  ...theme.text,
-  ...theme.marginBottom,
-  fontFamily: 'serif',
-  fontSize: 28,
-  fontStyle: 'italic',
-  fontWeight: 'bold',
-  lineHeight: 42,
-  textAlign: 'center',
-};
-
-theme.page = {
-  backgroundColor: colors.background,
-  // @ts-ignore Web only.
-  backgroundImage: `url('static/back.png')`,
-  flex: 1,
-  paddingHorizontal: 16,
-};
-
-theme.container = {
-  backgroundColor: 'rgb(255, 180, 49)',
-  borderColor: colors.black,
-  borderWidth: 2,
-  // flex: 1,
-  marginHorizontal: 'auto',
-  marginTop: 8,
-  maxWidth: 804,
-  // https://css-tricks.com/tale-width-max-width/
-  width: '100%',
-};
-
-theme.header = {
-  backgroundColor: colors.black,
-  flexDirection: 'row',
-  flexWrap: 'wrap',
-  paddingHorizontal: dimensions.spaceSmall,
-  paddingVertical: dimensions.spaceSmaller,
-};
-
-theme.headerLink = {
-  ...theme.text,
-  color: colors.foregroundInverse,
-  fontSize: 13,
-  fontWeight: '700',
-};
-
-theme.body = {
-  flex: 1,
-};
-
-theme.footer = {
-  backgroundColor: colors.black,
-};
-
-theme.footerText = {
-  ...theme.text,
-  color: colors.foregroundInverse,
-  fontSize: 12,
-  fontWeight: 'bold',
-  paddingVertical: dimensions.spaceSmaller,
-  textAlign: 'center',
-};
-
-theme.link = {
-  // Link does not extend text, because link can be in any text and inherits
-  // it's styles like fontFamily and fontSize. Therefore, Link must be always
-  // wrapped by Text.
-  color: colors.primary,
-};
-
-theme.linkActive = {
-  textDecorationLine: 'underline',
-};
-
-theme.spacer = {
-  width: dimensions.spaceSmall,
-};
-
-theme.row = {
-  flexDirection: 'row',
-};
+export type Theme = typeof theme;
 
 export default theme;

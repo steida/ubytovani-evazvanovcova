@@ -34,6 +34,11 @@ export const pageMessages = defineMessages({
   },
 });
 
+const Logo: React.FunctionComponent = () => {
+  const theme = useTheme();
+  return <View style={theme.logo} />;
+};
+
 const Header: React.FunctionComponent = () => {
   const theme = useTheme();
   const intl = useIntl();
@@ -80,6 +85,7 @@ const Page: React.FunctionComponent<{
       </Head>
       <View style={theme.page}>
         <View style={theme.container}>
+          <Logo />
           <Header />
           <View style={theme.body}>{props.children}</View>
           <Footer />
