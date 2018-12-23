@@ -1,6 +1,6 @@
 import Head from 'next/head';
 import React from 'react';
-import { defineMessages } from 'react-intl';
+import { FormattedMessage, defineMessages } from 'react-intl';
 import { ScrollView, Text, View } from 'react-native';
 import Link, { Href } from '../components/Link';
 import Spacer from '../components/Spacer';
@@ -39,17 +39,26 @@ const Logo: React.FunctionComponent = () => {
   return <View style={theme.logo} />;
 };
 
+interface HeaderLinkProps {
+  href: Href;
+  message: FormattedMessage.MessageDescriptor;
+}
+
+const HeaderLink: React.FunctionComponent<HeaderLinkProps> = ({
+  href,
+  message,
+}) => {
+  const intl = useIntl();
+  const theme = useTheme();
+  return (
+    <Link style={theme.headerLink} href={href} prefetch>
+      {intl.formatMessage(message)}
+    </Link>
+  );
+};
+
 const Header: React.FunctionComponent = () => {
   const theme = useTheme();
-  const intl = useIntl();
-  const HeaderLink = ({ href, message }: { href: Href; message: any }) => {
-    return (
-      <Link style={theme.headerLink} href={href}>
-        {intl.formatMessage(message)}
-      </Link>
-    );
-  };
-
   return (
     <View style={theme.header}>
       <Spacer style={theme.spacerBigger}>
