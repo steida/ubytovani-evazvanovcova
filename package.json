@@ -14,7 +14,8 @@
     "test:build": "npm run build",
     "test": "run-s test:lint test:tsc test:build",
     "deps": "rm -rf package-lock.json node_modules && npm i",
-    "export": "npm run build && next export"
+    "export": "npm run build && next export",
+    "deploy": "run-s export && cd out && now && cd .. && rm -rf out"
   },
   "dependencies": {
     "esm": "^3.0.84",
