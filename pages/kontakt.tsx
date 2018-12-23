@@ -15,7 +15,7 @@ const Kontakt: React.FunctionComponent = () => {
       <Text style={theme.heading2}>Adresa</Text>
       <Text style={theme.paragraph}>Sokolská 36, 379 01 Třeboň</Text>
       <Text style={theme.paragraph}>
-        Vjezd pro auta a parkoviště z ulice Vrchlického 935
+        Vjezd pro auta z ulice Vrchlického 935.
       </Text>
       <Text style={theme.heading2}>Email</Text>
       <Text style={theme.paragraph}>eva.zvanovcova@email.cz</Text>
