@@ -59,7 +59,7 @@ export const createTheme = (colors: Colors, dimensions: Dimensions) => {
   const page: ViewStyle = {
     backgroundColor: colors.background,
     // @ts-ignore Web only.
-    backgroundImage: `url('static/back.png')`,
+    backgroundImage: `url('/static/back.png')`,
     flex: 1,
     paddingHorizontal: 16,
   };
@@ -78,7 +78,7 @@ export const createTheme = (colors: Colors, dimensions: Dimensions) => {
 
   const logo: ViewStyle = {
     // @ts-ignore Web only.
-    backgroundImage: `url('static/head.png')`,
+    backgroundImage: `url('/static/head.png')`,
     // potrebuju obrazek, aby se roztahoval podle pozadi, hmm
     // takze asi image component, ok
     height: 178,
