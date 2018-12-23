@@ -37,7 +37,6 @@ export const createTheme = (colors: Colors, dimensions: Dimensions) => {
   const paragraph: TextStyle = {
     ...text,
     ...marginBottom,
-    paddingHorizontal: dimensions.space,
   };
 
   const heading1: TextStyle = {
@@ -49,6 +48,12 @@ export const createTheme = (colors: Colors, dimensions: Dimensions) => {
     fontWeight: 'bold',
     lineHeight: 42,
     textAlign: 'center',
+  };
+
+  const heading2: TextStyle = {
+    ...text,
+    ...marginBottom,
+    fontWeight: 'bold',
   };
 
   const page: ViewStyle = {
@@ -97,6 +102,7 @@ export const createTheme = (colors: Colors, dimensions: Dimensions) => {
 
   const body: ViewStyle = {
     flex: 1,
+    paddingHorizontal: dimensions.space,
   };
 
   const footer: ViewStyle = {
@@ -127,6 +133,10 @@ export const createTheme = (colors: Colors, dimensions: Dimensions) => {
     width: dimensions.spaceSmall,
   };
 
+  const spacerBigger: ViewStyle = {
+    width: dimensions.space,
+  };
+
   const row: ViewStyle = {
     flexDirection: 'row',
   };
@@ -144,6 +154,7 @@ export const createTheme = (colors: Colors, dimensions: Dimensions) => {
     header,
     headerLink,
     heading1,
+    heading2,
     image,
     link,
     linkActive,
@@ -153,6 +164,7 @@ export const createTheme = (colors: Colors, dimensions: Dimensions) => {
     paragraph,
     row,
     spacer,
+    spacerBigger,
     text,
   };
 };

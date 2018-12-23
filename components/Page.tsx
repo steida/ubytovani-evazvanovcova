@@ -12,13 +12,13 @@ export const pageMessages = defineMessages({
     defaultMessage: 'O penzionu',
     id: 'pageTitleAbout',
   },
-  pageTitleContacts: {
-    defaultMessage: 'Kontakty',
+  pageTitleContact: {
+    defaultMessage: 'Kontakt',
     id: 'pageTitleContacts',
   },
-  pageTitleGallery: {
-    defaultMessage: 'Fotogalerie',
-    id: 'pageTitleGallery',
+  pageTitlePhotos: {
+    defaultMessage: 'Fotky',
+    id: 'pageTitlePhotos',
   },
   pageTitlePrices: {
     defaultMessage: 'Ceník',
@@ -52,11 +52,11 @@ const Header: React.FunctionComponent = () => {
 
   return (
     <View style={theme.header}>
-      <Spacer>
+      <Spacer style={theme.spacerBigger}>
         <HeaderLink href="/" message={pageMessages.pageTitleAbout} />
         <HeaderLink href="/cenik" message={pageMessages.pageTitlePrices} />
-        <HeaderLink href="/fotky" message={pageMessages.pageTitleGallery} />
-        <HeaderLink href="/kontakt" message={pageMessages.pageTitleContacts} />
+        <HeaderLink href="/fotky" message={pageMessages.pageTitlePhotos} />
+        <HeaderLink href="/kontakt" message={pageMessages.pageTitleContact} />
         <HeaderLink href="/sluzby" message={pageMessages.pageTitleServices} />
       </Spacer>
     </View>
