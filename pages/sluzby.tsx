@@ -13,6 +13,10 @@ const Sluzby: React.FunctionComponent = () => {
   return (
     <Page title={title}>
       <Text style={theme.heading1}>{title}</Text>
+      <Text style={theme.paragraph}>
+        Penzion nabízí možnost zajištění koupelí, masáží, kosmetiky, pedikúry a
+        pobytu v solné jeskyni.
+      </Text>
     </Page>
   );
 };
