@@ -13,7 +13,8 @@
     "test:tsc": "tsc --project tsconfig.json",
     "test:build": "npm run build",
     "test": "run-s test:lint test:tsc test:build",
-    "deps": "rm -rf package-lock.json node_modules && npm i"
+    "deps": "rm -rf package-lock.json node_modules && npm i",
+    "export": "npm run build && next export"
   },
   "dependencies": {
     "esm": "^3.0.84",
