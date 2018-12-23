@@ -1,5 +1,4 @@
 import React from 'react';
-// import { FormattedMessage } from 'react-intl';
 import { Text } from 'react-native';
 import Page, { pageMessages } from '../components/Page';
 import useIntl from '../hooks/useIntl';

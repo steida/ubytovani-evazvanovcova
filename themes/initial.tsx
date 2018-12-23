@@ -146,6 +146,12 @@ export const createTheme = (colors: Colors, dimensions: Dimensions) => {
     maxWidth: '100%',
   };
 
+  const photos: ViewStyle = {
+    flexDirection: 'row',
+    flexWrap: 'wrap',
+    justifyContent: 'center',
+  };
+
   return {
     body,
     container,
@@ -162,6 +168,7 @@ export const createTheme = (colors: Colors, dimensions: Dimensions) => {
     marginBottom,
     page,
     paragraph,
+    photos,
     row,
     spacer,
     spacerBigger,
