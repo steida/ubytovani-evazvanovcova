@@ -13,10 +13,10 @@ const Cenik: React.FunctionComponent = () => {
     <Page title={title}>
       <Text style={theme.heading1}>{title}</Text>
       <Text style={theme.heading2}>Základní ceny</Text>
-      <Text style={theme.text}>Pokoj - 500 Kč osoba / den</Text>
+      <Text style={theme.text}>Pokoj - 400 Kč osoba / den</Text>
       <Text style={[theme.text, theme.marginBottom]}>Apartmán - 2500 Kč</Text>
       <Text style={theme.heading2}>Další náklady</Text>
-      <Text style={theme.text}>Pes - 100 Kč na den</Text>
+      <Text style={theme.text}>Pes - 70 Kč na den</Text>
       <Text style={[theme.text, theme.marginBottom]}>
         Přistýlka - 300 Kč na den
       </Text>
